@@ -24,6 +24,10 @@ public class App {
 					client.printAll();
 					break;
 				case "search":
+					if(args.length != 2){
+						printUsageAndQuit();
+					}
+					client.printSearch(args[1]);
 					break;
 				default:
 					printUsageAndQuit();
