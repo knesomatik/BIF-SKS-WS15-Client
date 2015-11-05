@@ -1,3 +1,4 @@
+/*
 package at.kleinknes.BookServiceClient;
 
 import javax.xml.bind.JAXBContext;
@@ -19,3 +20,4 @@ public class BookToXML {
 		marshaller.marshal(buch, new File("test.xml"));
 	}
 }
+*/

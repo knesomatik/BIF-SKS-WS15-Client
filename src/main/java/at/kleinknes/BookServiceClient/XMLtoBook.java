@@ -1,3 +1,4 @@
+/*
 package at.kleinknes.BookServiceClient;
 
 import javax.xml.bind.JAXBContext;
@@ -23,3 +24,4 @@ public class XMLtoBook {
 		System.out.println(book);
 	}
 }
+*/
