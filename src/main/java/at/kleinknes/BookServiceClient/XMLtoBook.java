@@ -1,4 +1,4 @@
-package BookServiceClient;
+package at.kleinknes.BookServiceClient;
 
 import java.io.File;
 
@@ -15,12 +15,12 @@ public class XMLtoBook {
 
 	    // the simple way
 	    // Person person = (Person) unmarshaller.unmarshal(new File("person.xml"));
-	    
+
 	    // the elegant way
 	    Source source = new StreamSource(new File("books.xml"));
 	    JAXBElement<Book> jaxbElement = unmarshaller.unmarshal(source, Book.class);
 	    Book book = jaxbElement.getValue();
-	    
+
 	    System.out.println(book);
 	  }
 }

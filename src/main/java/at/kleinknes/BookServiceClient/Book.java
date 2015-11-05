@@ -1,4 +1,4 @@
-package BookServiceClient;
+package at.kleinknes.BookServiceClient;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -19,7 +19,7 @@ public class Book {
 	private String title = null;
 	@XmlAttribute(name="pubYear")
 	private Date pubYear = null;
-	
+
 
 	public Book() {
 
@@ -46,7 +46,7 @@ public class Book {
 	public void setDate(Date newText) {
 		pubYear = newText;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Book [title=" + title + ", pubYear=" + pubYear + "]";

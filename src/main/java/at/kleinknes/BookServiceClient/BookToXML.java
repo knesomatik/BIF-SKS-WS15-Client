@@ -1,4 +1,4 @@
-package BookServiceClient;
+package at.kleinknes.BookServiceClient;
 
 import java.io.File;
 import java.time.LocalDate;
@@ -12,9 +12,9 @@ import javax.xml.bind.Marshaller;
 
 public class BookToXML {
   public static void main(String[] args) throws Exception {
-	  
+
     Book person = new Book("Bla", new Date());
-    
+
     JAXBContext jaxbContext = JAXBContext.newInstance(Book.class);
     Marshaller marshaller = jaxbContext.createMarshaller();
 
