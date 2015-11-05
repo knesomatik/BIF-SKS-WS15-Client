@@ -13,15 +13,15 @@ import javax.xml.bind.Marshaller;
 public class BookToXML {
   public static void main(String[] args) throws Exception {
 
-    Book person = new Book("Bla", new Date());
+    Book buch = new Book("Bla", new Date());
 
     JAXBContext jaxbContext = JAXBContext.newInstance(Book.class);
     Marshaller marshaller = jaxbContext.createMarshaller();
 
-    marshaller.setProperty(Marshaller.JAXB_ENCODING, "ISO-8859-1");
+    marshaller.setProperty(Marshaller.JAXB_ENCODING, "UTF-8");
     marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-    marshaller.marshal(person, System.out);
-    marshaller.marshal(person, new File("xml/person.xml"));
+    marshaller.marshal(buch, System.out);
+    marshaller.marshal(buch, new File("test.xml"));
   }
 }
