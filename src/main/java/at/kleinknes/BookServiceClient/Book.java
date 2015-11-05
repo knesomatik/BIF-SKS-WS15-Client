@@ -1,23 +1,18 @@
 package at.kleinknes.BookServiceClient;
 
-import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.Date;
 
-@XmlRootElement(name="book")
+@XmlRootElement(name = "book")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Book {
 
-	@XmlAttribute(name="title")
+	@XmlAttribute(name = "title")
 	private String title = null;
-	@XmlAttribute(name="pubYear")
+	@XmlAttribute(name = "pubYear")
 	private Date pubYear = null;
 
 
