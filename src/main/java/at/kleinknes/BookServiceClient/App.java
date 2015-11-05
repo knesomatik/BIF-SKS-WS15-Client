@@ -12,6 +12,10 @@ public class App {
 	}
 
 	public static void main(String[] args) {
+		System.out.println();
+		System.out.println("=== BookServiceClient ===");
+		System.out.println();
+
 		// check args
 		if (args.length > 0) {
 			BookServiceClient client = new BookServiceClient();
@@ -36,5 +40,8 @@ public class App {
 			printUsageAndQuit();
 		}
 
+		System.out.println();
+		System.out.println("…");
+		System.out.println();
 	}
 }

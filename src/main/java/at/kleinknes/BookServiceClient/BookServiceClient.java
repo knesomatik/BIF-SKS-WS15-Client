@@ -19,10 +19,19 @@ public class BookServiceClient {
 	}
 
 	public void printAll() {
+		System.out.println("listing all books...");
 		printBookList(listAll());
 	}
 
 	private void printBookList(List<Book> list) {
+
+		System.out.println();
+		System.out.println("results:");
+
+		if(list.size() <= 0){
+			System.out.println("no data found.");
+			return;
+		}
 
 		String[] columnNames = {"ID", "Title", "Date"};
 		String[][] printBooks = new String[list.size()][3];
@@ -37,12 +46,11 @@ public class BookServiceClient {
 		}
 
 		TextTable tt = new TextTable(columnNames, printBooks);
-		tt.printTable(System.out, 1);
-
-		System.out.println();
+		tt.printTable(System.out, 0);
 	}
 
 	public void printSearch(String arg) {
+		System.out.println("searching for \"" + arg + "\"…");
 		if (arg == null || Objects.equals(arg, "")) {
 			System.err.println("invalid search term");
 			return;
