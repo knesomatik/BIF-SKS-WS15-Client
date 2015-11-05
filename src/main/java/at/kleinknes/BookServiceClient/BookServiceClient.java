@@ -1,6 +1,8 @@
 package at.kleinknes.BookServiceClient;
 
-import at.kleinknes.bookservicewebapp.*;
+import at.kleinknes.bookservicewebapp.Book;
+import at.kleinknes.bookservicewebapp.BookWS;
+import at.kleinknes.bookservicewebapp.BookWebService;
 import dnl.utils.text.table.TextTable;
 
 import java.util.List;
@@ -28,7 +30,7 @@ public class BookServiceClient {
 		System.out.println();
 		System.out.println("results:");
 
-		if(list.size() <= 0){
+		if (list.size() <= 0) {
 			System.out.println("no data found.");
 			return;
 		}
