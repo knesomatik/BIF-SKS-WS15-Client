@@ -11,8 +11,7 @@ public class BookServiceClient {
 	private BookWebService bs = new BookWebService();
 	private BookWS port = bs.getBookWSPort();
 
-	public BookServiceClient(){
-
+	public BookServiceClient() {
 	}
 
 	public List<Book> listAll(){
@@ -20,34 +19,25 @@ public class BookServiceClient {
 	}
 
 	public void printAll(){
-		List<Book> list = listAll();
-		printBookList(list);
+		printBookList(listAll());
 	}
 
 	private void printBookList(List<Book> list){
 
-		String[] columnNames = new String[3];
-		columnNames[0] = "     ID     ";
-		columnNames[1] = "     Title     ";
-		columnNames[2] = "     Date     ";
-
-		String[][] test = new String[list.size()][3];
+		String[] columnNames = {"ID","Title","Date"};
+		String[][] printBooks = new String[list.size()][3];
 
 		int i = 0;
 
 		for(Book b : list){
-			test[i][0] = b.getID().toString();
-			test[i][1] = b.getTitle();
-			if(b.getDate() != null){
-				test[i][2] = b.getDate().toString();
-			}else{
-				test[i][2] = "null";
-			}
-			i++;
+			printBooks[i][0] = b.getID().toString();
+			printBooks[i][1] = b.getTitle();
+			printBooks[i][2] = b.getDate() != null ? b.getDate().toString() : "no date specified";
+			++i;
 		}
 
-		TextTable tt = new TextTable(columnNames, test);
-		tt.printTable(System.out, 2);
+		TextTable tt = new TextTable(columnNames, printBooks);
+		tt.printTable(System.out, 1);
 
 		System.out.println();
 	}
@@ -57,8 +47,7 @@ public class BookServiceClient {
 			System.err.println("invalid search term");
 			return;
 		}
-		List<Book> list = search(arg);
-		printBookList(list);
+		printBookList(search(arg));
 	}
 
 	public List<Book> search(String arg){
