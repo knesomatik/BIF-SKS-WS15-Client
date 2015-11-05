@@ -1,5 +1,7 @@
 package at.kleinknes.BookServiceClient;
 
+import at.kleinknes.bookservicewebapp.GetAllBooks;
+
 /**
  * Created by fekle on 05/11/15.
  */
