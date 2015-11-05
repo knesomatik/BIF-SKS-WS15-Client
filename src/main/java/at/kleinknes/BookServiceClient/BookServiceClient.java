@@ -8,8 +8,8 @@ import java.util.Objects;
 
 public class BookServiceClient {
 
-	private BookWebService bs = new BookWebService();
-	private BookWS port = bs.getBookWSPort();
+	private final BookWebService bs = new BookWebService();
+	private final BookWS port = bs.getBookWSPort();
 
 	public BookServiceClient() {
 	}

@@ -178,6 +178,7 @@ jboss/server/minimal/work/**/*
 # deployed package files #
 
 *.DEPLOYED
+/src/main/java/at/kleinknes/bookservicewebapp
 ### Linux template
 *~
 
