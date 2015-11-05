@@ -14,22 +14,22 @@ public class BookServiceClient {
 	public BookServiceClient() {
 	}
 
-	public List<Book> listAll(){
+	public List<Book> listAll() {
 		return port.getAllBooks();
 	}
 
-	public void printAll(){
+	public void printAll() {
 		printBookList(listAll());
 	}
 
-	private void printBookList(List<Book> list){
+	private void printBookList(List<Book> list) {
 
-		String[] columnNames = {"ID","Title","Date"};
+		String[] columnNames = {"ID", "Title", "Date"};
 		String[][] printBooks = new String[list.size()][3];
 
 		int i = 0;
 
-		for(Book b : list){
+		for (Book b : list) {
 			printBooks[i][0] = b.getID().toString();
 			printBooks[i][1] = b.getTitle();
 			printBooks[i][2] = b.getDate() != null ? b.getDate().toString() : "no date specified";
@@ -42,15 +42,15 @@ public class BookServiceClient {
 		System.out.println();
 	}
 
-	public void printSearch(String arg){
-		if(arg == null || Objects.equals(arg, "")){
+	public void printSearch(String arg) {
+		if (arg == null || Objects.equals(arg, "")) {
 			System.err.println("invalid search term");
 			return;
 		}
 		printBookList(search(arg));
 	}
 
-	public List<Book> search(String arg){
+	public List<Book> search(String arg) {
 		return port.searchBooks(arg);
 	}
 }

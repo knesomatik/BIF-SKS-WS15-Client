@@ -6,17 +6,17 @@ package at.kleinknes.BookServiceClient;
 public class App {
 
 	// self-explanatory
-	private static void printUsageAndQuit(){
+	private static void printUsageAndQuit() {
 		System.out.println("usage: bookserviceclient [import|listAll|search] {args}");
 		System.exit(1);
 	}
 
 	public static void main(String[] args) {
 		// check args
-		if(args.length > 0){
+		if (args.length > 0) {
 			BookServiceClient client = new BookServiceClient();
 
-			switch (args[0]){
+			switch (args[0]) {
 				case "import":
 					break;
 				case "listall":
@@ -24,7 +24,7 @@ public class App {
 					client.printAll();
 					break;
 				case "search":
-					if(args.length != 2){
+					if (args.length != 2) {
 						printUsageAndQuit();
 					}
 					client.printSearch(args[1]);
@@ -32,7 +32,7 @@ public class App {
 				default:
 					printUsageAndQuit();
 			}
-		}else{
+		} else {
 			printUsageAndQuit();
 		}
 
