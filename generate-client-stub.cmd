@@ -1,0 +1,1 @@
+wsimport -s src-generated -p knesklein.newBookClient.generated -Xnocompile http://localhost:8080/BookWS?wsdl

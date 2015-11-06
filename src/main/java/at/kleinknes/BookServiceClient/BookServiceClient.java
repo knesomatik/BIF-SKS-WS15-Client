@@ -1,8 +1,6 @@
 package at.kleinknes.BookServiceClient;
 
-import at.kleinknes.bookservicewebapp.Book;
-import at.kleinknes.bookservicewebapp.BookWS;
-import at.kleinknes.bookservicewebapp.BookWebService;
+import knesklein.newBookClient.generated.*;
 import dnl.utils.text.table.TextTable;
 
 import java.util.List;
