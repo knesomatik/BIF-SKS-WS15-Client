@@ -3,14 +3,22 @@ package at.kleinknes.BookServiceClient;
 import knesklein.newBookClient.generated.*;
 import dnl.utils.text.table.TextTable;
 
+import java.io.File;
 import java.util.List;
 import java.util.Objects;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.transform.Source;
+import javax.xml.transform.stream.StreamSource;
+
 public class BookServiceClient {
 
-	private final BookWebService bs = new BookWebService();
-	private final BookWS port = bs.getBookWSPort();
-
+	private BookWebService bs = new BookWebService();
+	private BookWS port = bs.getBookWebServicePort();
+	
 	public BookServiceClient() {
 	}
 
@@ -33,15 +41,14 @@ public class BookServiceClient {
 			return;
 		}
 
-		String[] columnNames = {"ID", "Title", "Date"};
+		String[] columnNames = {"Isbn", "Title", "Pages"};
 		String[][] printBooks = new String[list.size()][3];
 
 		int i = 0;
 
 		for (Book b : list) {
-			printBooks[i][0] = b.getID().toString();
+			printBooks[i][0] = b.getIsbn();
 			printBooks[i][1] = b.getTitle();
-			printBooks[i][2] = b.getDate() != null ? b.getDate().toString() : "no date specified";
 			++i;
 		}
 
@@ -60,5 +67,37 @@ public class BookServiceClient {
 
 	public List<Book> search(String arg) {
 		return port.searchBooks(arg);
+	}
+	
+	public void importBooks(String path){
+		JAXBContext jax = null;
+		Unmarshaller unMarsh = null;
+		try{
+			jax = JAXBContext.newInstance(Books.class);
+			unMarsh = jax.createUnmarshaller();
+		}catch(JAXBException e){
+			
+		}
+		
+		Source newSource = new StreamSource(new File(path));
+		JAXBElement<Books> jaxEl = null;
+		try{
+			jaxEl = unMarsh.unmarshal(newSource, Books.class);
+		}catch(JAXBException e){
+			System.err.println("Error by parsing XML File: "+e.getMessage());
+		}
+		
+		Books book = jaxEl.getValue();
+		
+		List<Book> bookList = book.getBooks();
+		
+		System.out.println(book);
+		
+		for(Book b : bookList){
+			System.out.println(b.getTitle());
+		}
+		
+		System.out.print(port.saveBooks(bookList));
+		
 	}
 }

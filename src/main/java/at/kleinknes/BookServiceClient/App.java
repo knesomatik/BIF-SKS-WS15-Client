@@ -22,6 +22,8 @@ public class App {
 
 			switch (args[0]) {
 				case "import":
+					System.out.println(args[1]);
+					client.importBooks(args[1]);
 					break;
 				case "listall":
 				case "listAll":

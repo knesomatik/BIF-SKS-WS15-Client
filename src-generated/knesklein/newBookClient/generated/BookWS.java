@@ -26,20 +26,6 @@ public interface BookWS {
 
     /**
      * 
-     * @param arg0
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "saveBook", targetNamespace = "http://BookServiceWebApp.kleinknes.at/", className = "knesklein.newBookClient.generated.SaveBook")
-    @ResponseWrapper(localName = "saveBookResponse", targetNamespace = "http://BookServiceWebApp.kleinknes.at/", className = "knesklein.newBookClient.generated.SaveBookResponse")
-    public boolean saveBook(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Book arg0);
-
-    /**
-     * 
      * @return
      *     returns java.util.List<knesklein.newBookClient.generated.Book>
      */
@@ -51,17 +37,17 @@ public interface BookWS {
 
     /**
      * 
-     * @param arg0
+     * @param book
      * @return
-     *     returns boolean
+     *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "saveBooks", targetNamespace = "http://BookServiceWebApp.kleinknes.at/", className = "knesklein.newBookClient.generated.SaveBooks")
     @ResponseWrapper(localName = "saveBooksResponse", targetNamespace = "http://BookServiceWebApp.kleinknes.at/", className = "knesklein.newBookClient.generated.SaveBooksResponse")
-    public boolean saveBooks(
-        @WebParam(name = "arg0", targetNamespace = "")
-        List<Book> arg0);
+    public String saveBooks(
+        @WebParam(name = "book", targetNamespace = "http://BookServiceWebApp.kleinknes.at/")
+        List<Book> book);
 
     /**
      * 

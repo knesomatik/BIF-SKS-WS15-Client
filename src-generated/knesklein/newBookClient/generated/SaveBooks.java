@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -18,7 +19,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="arg0" type="{http://BookServiceWebApp.kleinknes.at/}book" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element ref="{http://BookServiceWebApp.kleinknes.at/}book" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,25 +30,26 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "saveBooks", propOrder = {
-    "arg0"
+    "book"
 })
 public class SaveBooks {
 
-    protected List<Book> arg0;
+    @XmlElement(namespace = "http://BookServiceWebApp.kleinknes.at/")
+    protected List<Book> book;
 
     /**
-     * Gets the value of the arg0 property.
+     * Gets the value of the book property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the arg0 property.
+     * This is why there is not a <CODE>set</CODE> method for the book property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getArg0().add(newItem);
+     *    getBook().add(newItem);
      * </pre>
      * 
      * 
@@ -57,11 +59,11 @@ public class SaveBooks {
      * 
      * 
      */
-    public List<Book> getArg0() {
-        if (arg0 == null) {
-            arg0 = new ArrayList<Book>();
+    public List<Book> getBook() {
+        if (book == null) {
+            book = new ArrayList<Book>();
         }
-        return this.arg0;
+        return this.book;
     }
 
 }

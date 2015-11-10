@@ -67,9 +67,9 @@ public class BookWebService
      * @return
      *     returns BookWS
      */
-    @WebEndpoint(name = "BookWSPort")
-    public BookWS getBookWSPort() {
-        return super.getPort(new QName("http://BookServiceWebApp.kleinknes.at/", "BookWSPort"), BookWS.class);
+    @WebEndpoint(name = "BookWebServicePort")
+    public BookWS getBookWebServicePort() {
+        return super.getPort(new QName("http://BookServiceWebApp.kleinknes.at/", "BookWebServicePort"), BookWS.class);
     }
 
     /**
@@ -79,9 +79,9 @@ public class BookWebService
      * @return
      *     returns BookWS
      */
-    @WebEndpoint(name = "BookWSPort")
-    public BookWS getBookWSPort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://BookServiceWebApp.kleinknes.at/", "BookWSPort"), BookWS.class, features);
+    @WebEndpoint(name = "BookWebServicePort")
+    public BookWS getBookWebServicePort(WebServiceFeature... features) {
+        return super.getPort(new QName("http://BookServiceWebApp.kleinknes.at/", "BookWebServicePort"), BookWS.class, features);
     }
 
     private static URL __getWsdlLocation() {

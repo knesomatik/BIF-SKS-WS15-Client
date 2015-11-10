@@ -26,9 +26,8 @@ public class ObjectFactory {
 
     private final static QName _SaveBooksResponse_QNAME = new QName("http://BookServiceWebApp.kleinknes.at/", "saveBooksResponse");
     private final static QName _GetAllBooksResponse_QNAME = new QName("http://BookServiceWebApp.kleinknes.at/", "getAllBooksResponse");
-    private final static QName _SaveBook_QNAME = new QName("http://BookServiceWebApp.kleinknes.at/", "saveBook");
     private final static QName _SearchBooksResponse_QNAME = new QName("http://BookServiceWebApp.kleinknes.at/", "searchBooksResponse");
-    private final static QName _SaveBookResponse_QNAME = new QName("http://BookServiceWebApp.kleinknes.at/", "saveBookResponse");
+    private final static QName _Book_QNAME = new QName("http://BookServiceWebApp.kleinknes.at/", "book");
     private final static QName _GetAllBooks_QNAME = new QName("http://BookServiceWebApp.kleinknes.at/", "getAllBooks");
     private final static QName _SaveBooks_QNAME = new QName("http://BookServiceWebApp.kleinknes.at/", "saveBooks");
     private final static QName _SearchBooks_QNAME = new QName("http://BookServiceWebApp.kleinknes.at/", "searchBooks");
@@ -38,6 +37,14 @@ public class ObjectFactory {
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link Book }
+     * 
+     */
+    public Book createBook() {
+        return new Book();
     }
 
     /**
@@ -73,27 +80,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link SaveBookResponse }
-     * 
-     */
-    public SaveBookResponse createSaveBookResponse() {
-        return new SaveBookResponse();
-    }
-
-    /**
      * Create an instance of {@link GetAllBooksResponse }
      * 
      */
     public GetAllBooksResponse createGetAllBooksResponse() {
         return new GetAllBooksResponse();
-    }
-
-    /**
-     * Create an instance of {@link SaveBook }
-     * 
-     */
-    public SaveBook createSaveBook() {
-        return new SaveBook();
     }
 
     /**
@@ -105,19 +96,27 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Book }
+     * Create an instance of {@link Author }
      * 
      */
-    public Book createBook() {
-        return new Book();
+    public Author createAuthor() {
+        return new Author();
     }
 
     /**
-     * Create an instance of {@link LocalDate }
+     * Create an instance of {@link Publisher }
      * 
      */
-    public LocalDate createLocalDate() {
-        return new LocalDate();
+    public Publisher createPublisher() {
+        return new Publisher();
+    }
+
+    /**
+     * Create an instance of {@link Book.Authors }
+     * 
+     */
+    public Book.Authors createBookAuthors() {
+        return new Book.Authors();
     }
 
     /**
@@ -139,15 +138,6 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SaveBook }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://BookServiceWebApp.kleinknes.at/", name = "saveBook")
-    public JAXBElement<SaveBook> createSaveBook(SaveBook value) {
-        return new JAXBElement<SaveBook>(_SaveBook_QNAME, SaveBook.class, null, value);
-    }
-
-    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link SearchBooksResponse }{@code >}}
      * 
      */
@@ -157,12 +147,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SaveBookResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Book }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://BookServiceWebApp.kleinknes.at/", name = "saveBookResponse")
-    public JAXBElement<SaveBookResponse> createSaveBookResponse(SaveBookResponse value) {
-        return new JAXBElement<SaveBookResponse>(_SaveBookResponse_QNAME, SaveBookResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://BookServiceWebApp.kleinknes.at/", name = "book")
+    public JAXBElement<Book> createBook(Book value) {
+        return new JAXBElement<Book>(_Book_QNAME, Book.class, null, value);
     }
 
     /**
