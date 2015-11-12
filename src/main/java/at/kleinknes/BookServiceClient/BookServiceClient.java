@@ -1,6 +1,6 @@
 package at.kleinknes.BookServiceClient;
 
-import knesklein.newBookClient.generated.*;
+import at.kleinknes.newBookClient.generated.*;
 import dnl.utils.text.table.TextTable;
 
 import java.io.File;
@@ -41,14 +41,19 @@ public class BookServiceClient {
 			return;
 		}
 
-		String[] columnNames = {"Isbn", "Title", "Pages"};
-		String[][] printBooks = new String[list.size()][3];
+		String[] columnNames = {"Isbn", "Title", "Subtitle", "Description", "Pages", "Language"};
+		String[][] printBooks = new String[list.size()][6];
 
 		int i = 0;
 
 		for (Book b : list) {
 			printBooks[i][0] = b.getIsbn();
 			printBooks[i][1] = b.getTitle();
+			printBooks[i][2] = b.getSubtitle();
+			printBooks[i][3] = b.getDescription();
+			Long c = (long) b.getPages();
+			printBooks[i][4] = c.toString();
+			printBooks[i][5] = b.getLanguage();
 			++i;
 		}
 
@@ -95,9 +100,12 @@ public class BookServiceClient {
 		
 		for(Book b : bookList){
 			System.out.println(b.getTitle());
+			System.out.println(b.getPublisher().getName());
 		}
+		System.out.println(bookList);
 		
-		System.out.print(port.saveBooks(bookList));
+		port.saveBooks(bookList);
+		//System.out.println(port.saveBooks(bookList));
 		
 	}
 }

@@ -1,5 +1,5 @@
 
-package knesklein.newBookClient.generated;
+package at.kleinknes.newBookClient.generated;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

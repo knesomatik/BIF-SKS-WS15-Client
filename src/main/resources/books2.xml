@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
 <books>
-<book isbn="1234567" title="List1" pages="200">
+	<book isbn="1231231238" title="Java EE 7" subtitle="Einführung für Studierende" description="Dieses Buch führt Studierende in die Java EE 7-Plattform ein." pages="987" language="DE">
 	<authors>
-        <author firstname="Konstantin" secondname="Knes" authAddress="Lacknergasse 34" authTelNum="6509999999"/>
-        <author firstname="Daniel" secondname="Lackner" authAddress="Lacknergasse 35" authTelNum="6508888888"/>
-    </authors>
-    <publisher pubName="ViennaBookCompany" pubAddress="Lacknergasse 40" pubTelNum="6509999999"/>
-</book>
-<book isbn="1234567" title="List2" pages="200">
+		<author firstname="Siegfried" lastname="Maier" birthdate="1975-07-09T00:00:00"/>
+	</authors>
+	<publisher name="IT-Verlag" postcode="1010" countrycode="AT"/>
+	</book>
+	<book isbn="1231231239" title="SKS-Book" subtitle="TEST" description="Das beste Buch ever." pages="222" language="EN">
 	<authors>
-        <author firstname="Konstantin" secondname="Knes" authAddress="Lacknergasse 34" authTelNum="6509999999"/>
-        <author firstname="Daniel" secondname="Lackner" authAddress="Lacknergasse 35" authTelNum="6508888888"/>
+        <author firstname="Konstantin" secondname="Knes"/>
+        <author firstname="Daniel" secondname="Lackner"/>
     </authors>
-    <publisher pubName="ViennaBookCompany" pubAddress="Lacknergasse 40" pubTelNum="6509999999"/>
-</book>
-<book isbn="1234567" title="List3" pages="200">
-	<authors>
-        <author firstname="Konstantin" secondname="Knes" authAddress="Lacknergasse 34" authTelNum="6509999999"/>
-        <author firstname="Daniel" secondname="Lackner" authAddress="Lacknergasse 35" authTelNum="6508888888"/>
-    </authors>
-    <publisher pubName="ViennaBookCompany" pubAddress="Lacknergasse 40" pubTelNum="6509999999"/>
-</book>
+	<publisher name="IT-Verlag" postcode="1010" countrycode="AT"/>
+	</book>
 </books>

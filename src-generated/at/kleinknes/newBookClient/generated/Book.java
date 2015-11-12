@@ -1,5 +1,5 @@
 
-package knesklein.newBookClient.generated;
+package at.kleinknes.newBookClient.generated;
 
 import java.util.ArrayList;
 import java.util.List;

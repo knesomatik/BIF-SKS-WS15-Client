@@ -1,5 +1,5 @@
 
-package knesklein.newBookClient.generated;
+package at.kleinknes.newBookClient.generated;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for localDate complex type.
+ * <p>Java class for getAllBooks complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="localDate">
+ * &lt;complexType name="getAllBooks">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -25,8 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "localDate")
-public class LocalDate {
+@XmlType(name = "getAllBooks")
+public class GetAllBooks {
 
 
 }

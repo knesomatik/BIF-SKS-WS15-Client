@@ -1,5 +1,5 @@
 
-package knesklein.newBookClient.generated;
+package at.kleinknes.newBookClient.generated;
 
 import java.net.MalformedURLException;
 import java.net.URL;

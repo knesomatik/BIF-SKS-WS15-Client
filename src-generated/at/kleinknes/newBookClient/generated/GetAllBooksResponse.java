@@ -1,5 +1,5 @@
 
-package knesklein.newBookClient.generated;
+package at.kleinknes.newBookClient.generated;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for saveBooks complex type.
+ * <p>Java class for getAllBooksResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="saveBooks">
+ * &lt;complexType name="getAllBooksResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://BookServiceWebApp.kleinknes.at/}book" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://BookServiceWebApp.kleinknes.at/}book" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,27 +29,27 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "saveBooks", propOrder = {
-    "book"
+@XmlType(name = "getAllBooksResponse", propOrder = {
+    "_return"
 })
-public class SaveBooks {
+public class GetAllBooksResponse {
 
-    @XmlElement(namespace = "http://BookServiceWebApp.kleinknes.at/")
-    protected List<Book> book;
+    @XmlElement(name = "return")
+    protected List<Book> _return;
 
     /**
-     * Gets the value of the book property.
+     * Gets the value of the return property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the book property.
+     * This is why there is not a <CODE>set</CODE> method for the return property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getBook().add(newItem);
+     *    getReturn().add(newItem);
      * </pre>
      * 
      * 
@@ -59,11 +59,11 @@ public class SaveBooks {
      * 
      * 
      */
-    public List<Book> getBook() {
-        if (book == null) {
-            book = new ArrayList<Book>();
+    public List<Book> getReturn() {
+        if (_return == null) {
+            _return = new ArrayList<Book>();
         }
-        return this.book;
+        return this._return;
     }
 
 }

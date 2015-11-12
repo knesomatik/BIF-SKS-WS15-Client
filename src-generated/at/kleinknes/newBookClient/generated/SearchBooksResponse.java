@@ -1,5 +1,5 @@
 
-package knesklein.newBookClient.generated;
+package at.kleinknes.newBookClient.generated;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,12 +10,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for getAllBooksResponse complex type.
+ * <p>Java class for searchBooksResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="getAllBooksResponse">
+ * &lt;complexType name="searchBooksResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
@@ -29,10 +29,10 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getAllBooksResponse", propOrder = {
+@XmlType(name = "searchBooksResponse", propOrder = {
     "_return"
 })
-public class GetAllBooksResponse {
+public class SearchBooksResponse {
 
     @XmlElement(name = "return")
     protected List<Book> _return;
