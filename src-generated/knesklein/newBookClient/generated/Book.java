@@ -34,7 +34,10 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;/sequence>
  *       &lt;attribute name="isbn" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="title" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="subtitle" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="description" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="pages" use="required" type="{http://www.w3.org/2001/XMLSchema}int" />
+ *       &lt;attribute name="language" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -55,8 +58,14 @@ public class Book {
     protected String isbn;
     @XmlAttribute(name = "title")
     protected String title;
+    @XmlAttribute(name = "subtitle")
+    protected String subtitle;
+    @XmlAttribute(name = "description")
+    protected String description;
     @XmlAttribute(name = "pages", required = true)
     protected int pages;
+    @XmlAttribute(name = "language")
+    protected String language;
 
     /**
      * Gets the value of the authors property.
@@ -155,6 +164,54 @@ public class Book {
     }
 
     /**
+     * Gets the value of the subtitle property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getSubtitle() {
+        return subtitle;
+    }
+
+    /**
+     * Sets the value of the subtitle property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setSubtitle(String value) {
+        this.subtitle = value;
+    }
+
+    /**
+     * Gets the value of the description property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getDescription() {
+        return description;
+    }
+
+    /**
+     * Sets the value of the description property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setDescription(String value) {
+        this.description = value;
+    }
+
+    /**
      * Gets the value of the pages property.
      * 
      */
@@ -168,6 +225,30 @@ public class Book {
      */
     public void setPages(int value) {
         this.pages = value;
+    }
+
+    /**
+     * Gets the value of the language property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getLanguage() {
+        return language;
+    }
+
+    /**
+     * Sets the value of the language property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setLanguage(String value) {
+        this.language = value;
     }
 
 

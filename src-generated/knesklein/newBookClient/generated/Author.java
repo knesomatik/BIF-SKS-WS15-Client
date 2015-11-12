@@ -20,8 +20,6 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;/sequence>
  *       &lt;attribute name="firstname" type="{http://www.w3.org/2001/XMLSchema}string" />
  *       &lt;attribute name="secondname" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="authAddress" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="authTelNum" type="{http://www.w3.org/2001/XMLSchema}long" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -37,10 +35,6 @@ public class Author {
     protected String firstname;
     @XmlAttribute(name = "secondname")
     protected String secondname;
-    @XmlAttribute(name = "authAddress")
-    protected String authAddress;
-    @XmlAttribute(name = "authTelNum")
-    protected Long authTelNum;
 
     /**
      * Gets the value of the firstname property.
@@ -88,54 +82,6 @@ public class Author {
      */
     public void setSecondname(String value) {
         this.secondname = value;
-    }
-
-    /**
-     * Gets the value of the authAddress property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getAuthAddress() {
-        return authAddress;
-    }
-
-    /**
-     * Sets the value of the authAddress property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setAuthAddress(String value) {
-        this.authAddress = value;
-    }
-
-    /**
-     * Gets the value of the authTelNum property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Long }
-     *     
-     */
-    public Long getAuthTelNum() {
-        return authTelNum;
-    }
-
-    /**
-     * Sets the value of the authTelNum property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Long }
-     *     
-     */
-    public void setAuthTelNum(Long value) {
-        this.authTelNum = value;
     }
 
 }

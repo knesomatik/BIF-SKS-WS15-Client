@@ -18,9 +18,9 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *       &lt;/sequence>
- *       &lt;attribute name="pubName" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="pubAddress" type="{http://www.w3.org/2001/XMLSchema}string" />
- *       &lt;attribute name="pubTelNum" type="{http://www.w3.org/2001/XMLSchema}long" />
+ *       &lt;attribute name="name" type="{http://www.w3.org/2001/XMLSchema}string" />
+ *       &lt;attribute name="postCode" type="{http://www.w3.org/2001/XMLSchema}long" />
+ *       &lt;attribute name="countryCode" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
  *   &lt;/complexContent>
  * &lt;/complexType>
@@ -32,83 +32,83 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "publisher")
 public class Publisher {
 
-    @XmlAttribute(name = "pubName")
-    protected String pubName;
-    @XmlAttribute(name = "pubAddress")
-    protected String pubAddress;
-    @XmlAttribute(name = "pubTelNum")
-    protected Long pubTelNum;
+    @XmlAttribute(name = "name")
+    protected String name;
+    @XmlAttribute(name = "postCode")
+    protected Long postCode;
+    @XmlAttribute(name = "countryCode")
+    protected String countryCode;
 
     /**
-     * Gets the value of the pubName property.
+     * Gets the value of the name property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getPubName() {
-        return pubName;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Sets the value of the pubName property.
+     * Sets the value of the name property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setPubName(String value) {
-        this.pubName = value;
+    public void setName(String value) {
+        this.name = value;
     }
 
     /**
-     * Gets the value of the pubAddress property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPubAddress() {
-        return pubAddress;
-    }
-
-    /**
-     * Sets the value of the pubAddress property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPubAddress(String value) {
-        this.pubAddress = value;
-    }
-
-    /**
-     * Gets the value of the pubTelNum property.
+     * Gets the value of the postCode property.
      * 
      * @return
      *     possible object is
      *     {@link Long }
      *     
      */
-    public Long getPubTelNum() {
-        return pubTelNum;
+    public Long getPostCode() {
+        return postCode;
     }
 
     /**
-     * Sets the value of the pubTelNum property.
+     * Sets the value of the postCode property.
      * 
      * @param value
      *     allowed object is
      *     {@link Long }
      *     
      */
-    public void setPubTelNum(Long value) {
-        this.pubTelNum = value;
+    public void setPostCode(Long value) {
+        this.postCode = value;
+    }
+
+    /**
+     * Gets the value of the countryCode property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCountryCode() {
+        return countryCode;
+    }
+
+    /**
+     * Sets the value of the countryCode property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCountryCode(String value) {
+        this.countryCode = value;
     }
 
 }
