@@ -5,9 +5,6 @@ import at.kleinknes.BookServiceClient.BookServiceClient;
 import at.kleinknes.BookServiceClient.CliCommand;
 import io.airlift.airline.Arguments;
 import io.airlift.airline.Command;
-import io.airlift.airline.Option;
-
-import java.util.List;
 
 @Command(name = "import", description = "import books from XML file")
 public class BooksImport extends CliCommand {
@@ -15,8 +12,8 @@ public class BooksImport extends CliCommand {
 	public String file;
 
 	@Override
-	public void run(){
-		if(file == null){
+	public void run() {
+		if (file == null) {
 			return;
 		}
 

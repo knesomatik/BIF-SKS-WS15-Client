@@ -6,16 +6,14 @@ import at.kleinknes.bookservicewebapp.BookWS;
 import at.kleinknes.bookservicewebapp.BookWebService;
 import dnl.utils.text.table.TextTable;
 
-import java.io.File;
-import java.util.List;
-import java.util.Objects;
-
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
+import java.io.File;
+import java.util.List;
+import java.util.Objects;
 
 public class BookServiceClient {
 
@@ -77,11 +75,11 @@ public class BookServiceClient {
 		return port.searchBooks(arg);
 	}
 
-	public void importBooks(String path){
+	public void importBooks(String path) {
 
 		List<Book> books;
 
-		try{
+		try {
 			JAXBContext jax = JAXBContext.newInstance(Books.class);
 			Unmarshaller unMarsh = jax.createUnmarshaller();
 			Source newSource = new StreamSource(new File(path));
@@ -90,18 +88,17 @@ public class BookServiceClient {
 
 			books = jaxEl.getValue().getBook();
 
-		}catch(Exception e){
-			System.err.println("Error by parsing XML File: "+e.getMessage());
+		} catch (Exception e) {
+			System.err.println("Error by parsing XML File: " + e.getMessage());
 			return;
 		}
 
 		try {
 			System.out.println(port.saveBooks(books));
 
-		}catch (Exception e){
-			System.err.println("Error importing books: "+e.getMessage());
+		} catch (Exception e) {
+			System.err.println("Error importing books: " + e.getMessage());
 		}
-
 
 
 	}

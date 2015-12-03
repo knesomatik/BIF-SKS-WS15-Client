@@ -10,8 +10,7 @@ public class CliCommand implements Runnable {
 	@Option(type = OptionType.GLOBAL, name = "-v", description = "Verbose mode")
 	public boolean verbose;
 
-	public void run()
-	{
+	public void run() {
 		System.out.println(getClass().getSimpleName());
 	}
 }

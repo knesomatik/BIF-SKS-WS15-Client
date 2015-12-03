@@ -11,8 +11,7 @@ import java.util.List;
  * Created by fekle on 03/12/15.
  */
 @Command(name = "delete", description = "Add file contents to the index")
-public class BooksDelete extends CliCommand
-{
+public class BooksDelete extends CliCommand {
 	@Arguments(description = "Patterns of files to be added")
 	public List<String> patterns;
 
