@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<books>
+	<book isbn="1112" title="TestBuch" subtitle="Ein Buch zum testen" description="Beschreibung"
+		  pages="300" language="DE">
+		<publisher name="Musterverlag" postcode="1010" countrycode="AT" />
+		<authors>
+			<author firstname="Max" lastname="Musterman" birthdate="01.01.1970" />
+			<author firstname="Maria" lastname="Musterfrau" birthdate="01.01.1971" />
+		</authors>
+	</book>
+</books>

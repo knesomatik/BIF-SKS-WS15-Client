@@ -1,5 +1,12 @@
 package at.kleinknes.BookServiceClient;
 
+import at.kleinknes.BookServiceClient.Books.BooksImport;
+import at.kleinknes.BookServiceClient.Books.BooksDelete;
+import at.kleinknes.BookServiceClient.Books.BooksList;
+import at.kleinknes.BookServiceClient.Books.BooksSearch;
+import io.airlift.airline.Cli;
+import io.airlift.airline.Help;
+
 /**
  * Created by fekle on 05/11/15.
  */
@@ -12,38 +19,29 @@ public class App {
 	}
 
 	public static void main(String[] args) {
-		System.out.println();
-		System.out.println("=== BookServiceClient ===");
-		System.out.println();
+		Cli.CliBuilder<Runnable> builder = Cli.<Runnable>builder("bif-sks-ws15-client")
+				.withDescription("bif")
+				.withDefaultCommand(Help.class)
+				.withCommands(Help.class);
 
-		// check args
-		if (args.length > 0) {
-			BookServiceClient client = new BookServiceClient();
+	/*	builder.withGroup("authors")
+				.withDescription("manage authors")
+				.withDefaultCommand(Help.class)
+				.withCommands(Help.class, AuthorsAdd.class);
 
-			switch (args[0]) {
-				case "import":
-					System.out.println(args[1]);
-					client.importBooks(args[1]);
-					break;
-				case "listall":
-				case "listAll":
-					client.printAll();
-					break;
-				case "search":
-					if (args.length != 2) {
-						printUsageAndQuit();
-					}
-					client.printSearch(args[1]);
-					break;
-				default:
-					printUsageAndQuit();
-			}
-		} else {
-			printUsageAndQuit();
-		}
+		builder.withGroup("publishers")
+				.withDescription("manage publishers")
+				.withDefaultCommand(Help.class)
+				.withCommands(Help.class, PublisherAdd.class);*/
 
-		System.out.println();
-		System.out.println("…");
-		System.out.println();
+		builder.withGroup("books")
+				.withDescription("manage books")
+				.withDefaultCommand(BooksList.class)
+				.withCommands(BooksList.class, BooksSearch.class, BooksImport.class, BooksDelete.class);
+
+		Cli<Runnable> gitParser = builder.build();
+
+		gitParser.parse(args).run();
+
 	}
 }

@@ -1,6 +1,9 @@
 package at.kleinknes.BookServiceClient;
 
-import at.kleinknes.newBookClient.generated.*;
+import at.kleinknes.BookServiceClient.wrappers.Books;
+import at.kleinknes.bookservicewebapp.Book;
+import at.kleinknes.bookservicewebapp.BookWS;
+import at.kleinknes.bookservicewebapp.BookWebService;
 import dnl.utils.text.table.TextTable;
 
 import java.io.File;
@@ -18,7 +21,7 @@ public class BookServiceClient {
 
 	private BookWebService bs = new BookWebService();
 	private BookWS port = bs.getBookWebServicePort();
-	
+
 	public BookServiceClient() {
 	}
 
@@ -73,39 +76,34 @@ public class BookServiceClient {
 	public List<Book> search(String arg) {
 		return port.searchBooks(arg);
 	}
-	
+
 	public void importBooks(String path){
-		JAXBContext jax = null;
-		Unmarshaller unMarsh = null;
+
+		List<Book> books;
+
 		try{
-			jax = JAXBContext.newInstance(Books.class);
-			unMarsh = jax.createUnmarshaller();
-		}catch(JAXBException e){
-			
-		}
-		
-		Source newSource = new StreamSource(new File(path));
-		JAXBElement<Books> jaxEl = null;
-		try{
-			jaxEl = unMarsh.unmarshal(newSource, Books.class);
-		}catch(JAXBException e){
+			JAXBContext jax = JAXBContext.newInstance(Books.class);
+			Unmarshaller unMarsh = jax.createUnmarshaller();
+			Source newSource = new StreamSource(new File(path));
+			JAXBElement<Books> jaxEl = unMarsh.unmarshal(newSource, Books.class);
+
+
+			books = jaxEl.getValue().getBook();
+
+		}catch(Exception e){
 			System.err.println("Error by parsing XML File: "+e.getMessage());
+			return;
 		}
-		
-		Books book = jaxEl.getValue();
-		
-		List<Book> bookList = book.getBooks();
-		
-		System.out.println(book);
-		
-		for(Book b : bookList){
-			System.out.println(b.getTitle());
-			System.out.println(b.getPublisher().getName());
+
+		try {
+			System.out.println(port.saveBooks(books));
+
+		}catch (Exception e){
+			System.err.println("Error importing books: "+e.getMessage());
 		}
-		System.out.println(bookList);
-		
-		port.saveBooks(bookList);
-		//System.out.println(port.saveBooks(bookList));
-		
+
+
+
 	}
+
 }
