@@ -1,6 +1,6 @@
 package at.kleinknes.BookServiceClient.Books;
 
-import at.kleinknes.BookServiceClient.BookServiceClient;
+import at.kleinknes.BookServiceClient.BookClient;
 import at.kleinknes.BookServiceClient.CliCommand;
 import io.airlift.airline.Command;
 
@@ -11,7 +11,7 @@ import io.airlift.airline.Command;
 public class BooksList extends CliCommand {
 	@Override
 	public void run() {
-		BookServiceClient bs = new BookServiceClient();
+		BookClient bs = new BookClient();
 		bs.printAll();
 	}
 }

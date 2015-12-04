@@ -15,12 +15,12 @@ import java.io.File;
 import java.util.List;
 import java.util.Objects;
 
-public class BookServiceClient {
+public class BookClient {
 
 	private BookWebService bs = new BookWebService();
 	private BookWS port = bs.getBookWebServicePort();
 
-	public BookServiceClient() {
+	public BookClient() {
 	}
 
 	public List<Book> listAll() {

@@ -1,6 +1,6 @@
 package at.kleinknes.BookServiceClient.Books;
 
-import at.kleinknes.BookServiceClient.BookServiceClient;
+import at.kleinknes.BookServiceClient.BookClient;
 import at.kleinknes.BookServiceClient.CliCommand;
 import io.airlift.airline.Arguments;
 import io.airlift.airline.Command;
@@ -19,7 +19,7 @@ public class BooksSearch extends CliCommand {
 			return;
 		}
 
-		BookServiceClient bs = new BookServiceClient();
+		BookClient bs = new BookClient();
 		bs.printSearch(query);
 	}
 }
