@@ -1,21 +1,13 @@
 package at.kleinknes.BookServiceClient.Authors;
 
 import at.kleinknes.BookServiceClient.CliCommand;
-import at.kleinknes.bookservicewebapp.Author;
-import at.kleinknes.bookservicewebapp.Book;
-import at.kleinknes.bookservicewebapp.ObjectFactory;
 import dnl.utils.text.table.TextTable;
-import io.airlift.airline.Arguments;
 import io.airlift.airline.Command;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -58,26 +50,24 @@ public class AuthorsList extends CliCommand {
 		for (LinkedHashMap b : list) {
 
 			Object _authID = b.get("authID");
-			Object _firstname  = b.get("firstname");
+			Object _firstname = b.get("firstname");
 			Object _lastname = b.get("lastname");
 
 			String authID = "";
 			String firstname = "";
 			String lastname = "";
 
-			if(_authID != null){
+			if (_authID != null) {
 				authID = _authID.toString();
 			}
 
-			if(_firstname != null){
+			if (_firstname != null) {
 				firstname = _firstname.toString();
 			}
 
-			if(_lastname != null){
+			if (_lastname != null) {
 				lastname = _lastname.toString();
 			}
-
-
 
 
 			printBooks[i][0] = authID;

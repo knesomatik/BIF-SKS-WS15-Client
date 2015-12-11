@@ -4,11 +4,12 @@ import at.kleinknes.BookServiceClient.CliCommand;
 import io.airlift.airline.Arguments;
 import io.airlift.airline.Command;
 
-import javax.ws.rs.client.*;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -22,7 +23,7 @@ public class PublishersAdd extends CliCommand {
 	@Override
 	public void run() {
 
-		if(pubName.size() != 1){
+		if (pubName.size() != 1) {
 			System.err.println("invalid name format. <name>");
 			return;
 		}
@@ -45,7 +46,7 @@ public class PublishersAdd extends CliCommand {
 
 		Object resp =
 				target.request(MediaType.APPLICATION_JSON_TYPE)
-						.put(Entity.entity(form,MediaType.APPLICATION_FORM_URLENCODED_TYPE),
+						.put(Entity.entity(form, MediaType.APPLICATION_FORM_URLENCODED_TYPE),
 								Object.class);
 
 

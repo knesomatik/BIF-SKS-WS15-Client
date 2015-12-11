@@ -59,7 +59,7 @@ public class BookClient {
 
 			String authors = "";
 
-			for(Author a : b.getAuthors()){
+			for (Author a : b.getAuthors()) {
 				authors += a.getFirstname() + " " + a.getLastname() + " ";
 			}
 

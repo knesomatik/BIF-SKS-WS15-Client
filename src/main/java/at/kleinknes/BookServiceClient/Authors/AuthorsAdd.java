@@ -1,17 +1,15 @@
 package at.kleinknes.BookServiceClient.Authors;
 
 import at.kleinknes.BookServiceClient.CliCommand;
-import at.kleinknes.bookservicewebapp.Author;
 import io.airlift.airline.Arguments;
 import io.airlift.airline.Command;
-import org.codehaus.jackson.annotate.JsonAutoDetect;
-import org.codehaus.jackson.annotate.JsonMethod;
 
-import javax.ws.rs.client.*;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -25,7 +23,7 @@ public class AuthorsAdd extends CliCommand {
 	@Override
 	public void run() {
 
-		if(authorName.size() != 2){
+		if (authorName.size() != 2) {
 			System.err.println("invalid name format. <firstname> <lastname>");
 			return;
 		}
@@ -48,7 +46,7 @@ public class AuthorsAdd extends CliCommand {
 
 		Object resp =
 				target.request(MediaType.APPLICATION_JSON_TYPE)
-						.put(Entity.entity(form,MediaType.APPLICATION_FORM_URLENCODED_TYPE),
+						.put(Entity.entity(form, MediaType.APPLICATION_FORM_URLENCODED_TYPE),
 								Object.class);
 
 
