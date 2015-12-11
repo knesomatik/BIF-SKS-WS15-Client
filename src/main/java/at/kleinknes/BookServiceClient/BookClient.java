@@ -1,6 +1,7 @@
 package at.kleinknes.BookServiceClient;
 
 import at.kleinknes.BookServiceClient.wrappers.Books;
+import at.kleinknes.bookservicewebapp.Author;
 import at.kleinknes.bookservicewebapp.Book;
 import at.kleinknes.bookservicewebapp.BookWS;
 import at.kleinknes.bookservicewebapp.BookWebService;
@@ -42,8 +43,8 @@ public class BookClient {
 			return;
 		}
 
-		String[] columnNames = {"Isbn", "Title", "Subtitle", "Description", "Pages", "Language"};
-		String[][] printBooks = new String[list.size()][6];
+		String[] columnNames = {"Isbn", "Title", "Subtitle", "Description", "Pages", "Language", "Authors"};
+		String[][] printBooks = new String[list.size()][7];
 
 		int i = 0;
 
@@ -55,6 +56,14 @@ public class BookClient {
 			Long c = (long) b.getPages();
 			printBooks[i][4] = c.toString();
 			printBooks[i][5] = b.getLanguage();
+
+			String authors = "";
+
+			for(Author a : b.getAuthors()){
+				authors += a.getFirstname() + " " + a.getLastname() + " ";
+			}
+
+			printBooks[i][6] = authors;
 			++i;
 		}
 

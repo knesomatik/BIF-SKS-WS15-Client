@@ -1,6 +1,7 @@
 package at.kleinknes.BookServiceClient;
 
 import at.kleinknes.BookServiceClient.Authors.AuthorsAdd;
+import at.kleinknes.BookServiceClient.Authors.AuthorsList;
 import at.kleinknes.BookServiceClient.Books.BooksDelete;
 import at.kleinknes.BookServiceClient.Books.BooksImport;
 import at.kleinknes.BookServiceClient.Books.BooksList;
@@ -24,7 +25,7 @@ public class App {
 		builder.withGroup("authors")
 				.withDescription("manage authors")
 				.withDefaultCommand(AuthorsAdd.class)
-				.withCommands(AuthorsAdd.class);
+				.withCommands(AuthorsAdd.class, AuthorsList.class);
 
 		builder.withGroup("publishers")
 				.withDescription("manage publishers")

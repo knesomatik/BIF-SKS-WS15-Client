@@ -4,10 +4,14 @@ import at.kleinknes.BookServiceClient.CliCommand;
 import at.kleinknes.bookservicewebapp.Author;
 import io.airlift.airline.Arguments;
 import io.airlift.airline.Command;
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import org.codehaus.jackson.annotate.JsonMethod;
 
 import javax.ws.rs.client.*;
+import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -34,20 +38,20 @@ public class AuthorsAdd extends CliCommand {
 			return;
 		}
 
-		Author newAuthor = new Author();
-		newAuthor.setFirstname(firstName);
-		newAuthor.setLastname(lastName);
-
+		Form form = new Form();
+		form.param("firstname", firstName);
+		form.param("lastname", lastName);
 
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target("http://localhost:9991").path("rest/author");
-		Invocation.Builder builder = target.request("application/json");
-		Entity<Author>  request = Entity.entity(newAuthor, "application/json");
 
-		Response resp = builder.put(request);
 
-		Author ret = (Author) resp.getEntity();
+		Object resp =
+				target.request(MediaType.APPLICATION_JSON_TYPE)
+						.put(Entity.entity(form,MediaType.APPLICATION_FORM_URLENCODED_TYPE),
+								Object.class);
 
-		System.err.println(resp.getStatus());
+
+		System.err.println(resp);
 	}
 }

@@ -4,7 +4,7 @@
 		  pages="300" language="DE">
 		<publisher name="Musterverlag" postcode="1010" countrycode="AT"/>
 		<authors>
-			<author firstname="Max" lastname="Musterman" birthdate="01.01.1970"/>
+			<author firstname="Max" lastname="Mustermann" birthdate="01.01.1970"/>
 			<author firstname="Maria" lastname="Musterfrau" birthdate="01.01.1971"/>
 		</authors>
 	</book>
