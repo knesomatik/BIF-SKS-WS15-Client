@@ -12,6 +12,5 @@ public class BooksList extends CliCommand {
 	@Override
 	public void run() {
 		BookClient bs = new BookClient();
-		bs.printAll();
 	}
 }

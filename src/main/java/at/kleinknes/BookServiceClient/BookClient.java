@@ -1,10 +1,7 @@
 package at.kleinknes.BookServiceClient;
 
 import at.kleinknes.BookServiceClient.wrappers.Books;
-import at.kleinknes.bookservicewebapp.Author;
-import at.kleinknes.bookservicewebapp.Book;
-import at.kleinknes.bookservicewebapp.BookWS;
-import at.kleinknes.bookservicewebapp.BookWebService;
+import at.kleinknes.bookservicewebapp.*;
 import dnl.utils.text.table.TextTable;
 
 import javax.xml.bind.JAXBContext;
@@ -35,6 +32,8 @@ public class BookClient {
 
 	private void printBookList(List<Book> list) {
 
+		list.forEach(System.out::println);
+
 		System.out.println();
 		System.out.println("results:");
 
@@ -59,7 +58,7 @@ public class BookClient {
 
 			String authors = "";
 
-			for (Author a : b.getAuthors()) {
+			for (Author a : b.getAuthors().getAuthor()) {
 				authors += a.getFirstname() + " " + a.getLastname() + " ";
 			}
 
@@ -103,6 +102,7 @@ public class BookClient {
 		}
 
 		try {
+			System.out.println(books.get(0).getAuthors().getAuthor().get(0).getFirstname());
 			System.out.println(port.saveBooks(books));
 
 		} catch (Exception e) {

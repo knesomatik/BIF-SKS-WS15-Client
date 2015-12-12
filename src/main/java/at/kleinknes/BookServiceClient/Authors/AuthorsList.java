@@ -3,11 +3,13 @@ package at.kleinknes.BookServiceClient.Authors;
 import at.kleinknes.BookServiceClient.CliCommand;
 import dnl.utils.text.table.TextTable;
 import io.airlift.airline.Command;
+import org.codehaus.jackson.JsonGenerator;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -22,12 +24,17 @@ public class AuthorsList extends CliCommand {
 	public void run() {
 
 		Client client = ClientBuilder.newClient();
+
 		WebTarget target = client.target("http://localhost:9991").path("rest/author");
 
-		ArrayList<LinkedHashMap> resp =
-				target.request(MediaType.APPLICATION_JSON_TYPE).get(ArrayList.class);
+		Response resp = target.request(MediaType.APPLICATION_JSON_TYPE).get(Response.class);
 
-		printAuthor(resp);
+
+		if(resp.getStatus() == 200) {
+			printAuthor((ArrayList<LinkedHashMap>) resp.readEntity(ArrayList.class));
+		}else{
+			System.out.println(resp.readEntity(String.class));
+		}
 
 	}
 
@@ -36,6 +43,11 @@ public class AuthorsList extends CliCommand {
 
 		System.out.println();
 		System.out.println("results:");
+
+		if (list == null){
+			System.err.println("empty data");
+			return;
+		}
 
 		if (list.size() <= 0) {
 			System.out.println("no data found.");

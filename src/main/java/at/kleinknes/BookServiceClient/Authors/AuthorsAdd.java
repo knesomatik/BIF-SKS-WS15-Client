@@ -1,15 +1,20 @@
 package at.kleinknes.BookServiceClient.Authors;
 
 import at.kleinknes.BookServiceClient.CliCommand;
+import at.kleinknes.bookservicewebapp.Author;
 import io.airlift.airline.Arguments;
 import io.airlift.airline.Command;
 
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -23,33 +28,40 @@ public class AuthorsAdd extends CliCommand {
 	@Override
 	public void run() {
 
-		if (authorName.size() != 2) {
+		if (authorName.size() != 3) {
 			System.err.println("invalid name format. <firstname> <lastname>");
 			return;
 		}
 
 		String firstName = authorName.get(0);
 		String lastName = authorName.get(1);
+		String birthdate = authorName.get(2);
 
 		if (firstName == null || lastName == null) {
 			System.err.println("invalid name");
 			return;
 		}
 
-		Form form = new Form();
-		form.param("firstname", firstName);
-		form.param("lastname", lastName);
+		Author newAuthor = new Author();
+
+		newAuthor.setFirstname(firstName);
+		newAuthor.setLastname(lastName);
+		newAuthor.setBirthdate(birthdate);
 
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target("http://localhost:9991").path("rest/author");
 
 
-		Object resp =
+		Response resp =
 				target.request(MediaType.APPLICATION_JSON_TYPE)
-						.put(Entity.entity(form, MediaType.APPLICATION_FORM_URLENCODED_TYPE),
-								Object.class);
+						.put(Entity.entity(newAuthor, MediaType.APPLICATION_JSON_TYPE),
+								Response.class);
 
 
-		System.err.println(resp);
+		if(resp.getStatus() == 200) {
+			System.out.println("Success");
+		}else{
+			System.out.println(resp.readEntity(String.class));
+		}
 	}
 }
