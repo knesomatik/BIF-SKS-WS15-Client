@@ -5,16 +5,12 @@ import at.kleinknes.bookservicewebapp.Author;
 import io.airlift.airline.Arguments;
 import io.airlift.airline.Command;
 
-import javax.ws.rs.QueryParam;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -58,9 +54,9 @@ public class AuthorsAdd extends CliCommand {
 								Response.class);
 
 
-		if(resp.getStatus() == 200) {
+		if (resp.getStatus() == 200) {
 			System.out.println("Success");
-		}else{
+		} else {
 			System.out.println(resp.readEntity(String.class));
 		}
 	}

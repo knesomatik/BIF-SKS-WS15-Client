@@ -9,11 +9,8 @@ import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Form;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -56,9 +53,9 @@ public class PublishersAdd extends CliCommand {
 								Response.class);
 
 
-		if(resp.getStatus() == 200) {
+		if (resp.getStatus() == 200) {
 			System.out.println("success");
-		}else{
+		} else {
 			System.out.println(resp.readEntity(String.class));
 		}
 	}

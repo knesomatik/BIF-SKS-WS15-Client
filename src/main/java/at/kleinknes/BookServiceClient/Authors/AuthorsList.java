@@ -3,7 +3,6 @@ package at.kleinknes.BookServiceClient.Authors;
 import at.kleinknes.BookServiceClient.CliCommand;
 import dnl.utils.text.table.TextTable;
 import io.airlift.airline.Command;
-import org.codehaus.jackson.JsonGenerator;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -30,9 +29,9 @@ public class AuthorsList extends CliCommand {
 		Response resp = target.request(MediaType.APPLICATION_JSON_TYPE).get(Response.class);
 
 
-		if(resp.getStatus() == 200) {
+		if (resp.getStatus() == 200) {
 			printAuthor((ArrayList<LinkedHashMap>) resp.readEntity(ArrayList.class));
-		}else{
+		} else {
 			System.out.println(resp.readEntity(String.class));
 		}
 
@@ -44,7 +43,7 @@ public class AuthorsList extends CliCommand {
 		System.out.println();
 		System.out.println("results:");
 
-		if (list == null){
+		if (list == null) {
 			System.err.println("empty data");
 			return;
 		}

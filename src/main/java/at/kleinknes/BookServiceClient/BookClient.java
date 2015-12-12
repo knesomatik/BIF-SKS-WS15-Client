@@ -1,7 +1,10 @@
 package at.kleinknes.BookServiceClient;
 
 import at.kleinknes.BookServiceClient.wrappers.Books;
-import at.kleinknes.bookservicewebapp.*;
+import at.kleinknes.bookservicewebapp.Author;
+import at.kleinknes.bookservicewebapp.Book;
+import at.kleinknes.bookservicewebapp.BookWS;
+import at.kleinknes.bookservicewebapp.BookWebService;
 import dnl.utils.text.table.TextTable;
 
 import javax.xml.bind.JAXBContext;
