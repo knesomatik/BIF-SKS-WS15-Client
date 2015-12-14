@@ -140,11 +140,22 @@ local.properties
 # PDT-specific
 .buildpath
 
+### Eclipse template
+# Eclipse Core
+# External tool builders
+# Locally stored "Eclipse launch configurations"
+# CDT-specific
+# JDT-specific (Eclipse Java Development Tools)
+# Java annotation processor (APT)
+# PDT-specific
 # sbteclipse plugin
 .target
 
 # TeXlipse plugin
 .texlipse
+
+# sbteclipse plugin
+# TeXlipse plugin
 ### Java template
 *.class
 
