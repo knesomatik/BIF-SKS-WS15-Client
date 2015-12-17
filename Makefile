@@ -1,5 +1,5 @@
 wsimport:
-	wsimport -d src/main/java "http://localhost:9991/BookWS?wsdl" -Xnocompile -encoding utf-8 -B-mark-generated -B-Xsync-methods
+	wsimport -d src/main/java "http://localhost:8080/BookWS?wsdl" -Xnocompile -encoding utf-8 -B-mark-generated -B-Xsync-methods
 
 build: wsimport
 	mvn -B -T 2C clean -Dmaven.test.skip=true
