@@ -7,8 +7,8 @@ import io.airlift.airline.OptionType;
  * Created by fekle on 03/12/15.
  */
 public class CliCommand implements Runnable {
-	@Option(type = OptionType.GLOBAL, name = "-v", description = "Verbose mode")
-	public boolean verbose;
+	@Option(type = OptionType.GLOBAL, name = "--host", description = "hostname")
+	public String hostname = "localhost:9991";
 
 	public void run() {
 		System.out.println(getClass().getSimpleName());
