@@ -44,7 +44,7 @@ public class PublishersAdd extends CliCommand {
 		newPub.setPostcode(postcode);
 
 		Client client = ClientBuilder.newClient();
-		WebTarget target = client.target("http://localhost:9991").path("rest/publisher");
+		WebTarget target = client.target("http://localhost:8080").path("rest/publisher");
 
 
 		Response resp =
