@@ -24,7 +24,7 @@ public class AuthorsList extends CliCommand {
 
 		Client client = ClientBuilder.newClient();
 
-		WebTarget target = client.target("http://localhost:9991").path("rest/author");
+		WebTarget target = client.target(this.hostname).path("rest/author");
 
 		Response resp = target.request(MediaType.APPLICATION_JSON_TYPE).get(Response.class);
 

@@ -45,7 +45,7 @@ public class AuthorsAdd extends CliCommand {
 		newAuthor.setBirthdate(birthdate);
 
 		Client client = ClientBuilder.newClient();
-		WebTarget target = client.target("http://localhost:9991").path("rest/author");
+		WebTarget target = client.target(this.hostname).path("rest/author");
 
 
 		Response resp =
